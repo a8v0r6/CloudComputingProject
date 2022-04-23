@@ -1,0 +1,159 @@
+<!--
+  Welcome to Tailwind Play, the official Tailwind CSS playground!
+
+  Everything here works just like it does when you're running Tailwind locally
+  with a real build pipeline. You can customize your config file, use features
+  like `@apply`, or even add third-party plugins.
+
+  Feel free to play with this example if you're just learning, or trash it and
+  start from scratch if you know enough to be dangerous. Have fun!
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="absolute inset-0 bg-gradient-to-r from-gray-400 to-gray-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+    <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+      <div class="max-w-md mx-auto">
+        <div class="flex flex-row">
+
+
+                <span class="ml-3 text-3xl text-green-500 font-bold">Bus Travel Checkout</span>
+        </div>
+        <div class="divide-y divide-gray-200">
+          <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+            <ul class="list-disc space-y-2">
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Trip By: 
+                  <code class="text-sm font-bold text-gray-900">{{tripby}}</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Name: 
+                  <code class="text-sm font-bold text-gray-900">{{user.first_name}} {{user.last_name}}</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  From: 
+                  <code class="text-sm font-bold text-gray-900">{{trip.fromP}}</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  To: 
+                  <code class="text-sm font-bold text-gray-900">{{trip.toP}}</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Departure Date: 
+                  <code class="text-sm font-bold text-gray-900">{{bus.departureDate}}</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Departure Time: 
+                  <code class="text-sm font-bold text-gray-900">{{trip.departure}}</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Arival Time: 
+                  <code class="text-sm font-bold text-gray-900">{{trip.arival}}</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Adult Members:  
+                  <code class="text-sm font-bold text-gray-900">{{bus.adult}}</code>
+                </p>
+              </li>
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Child Members (2-15 years): 
+                  <code class="text-sm font-bold text-gray-900">{{bus.child}}</code>
+                </p>
+              </li>
+              {% comment %} <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Babies (Under 2 years): 
+                  <code class="text-sm font-bold text-gray-900">{{bus.baby}}</code>
+                </p>
+              </li> {% endcomment %}
+              <li class="flex items-start">
+                <span class="h-6 flex items-center sm:h-7">
+                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <p class="ml-2">
+                  Total Cost:
+                  <code class="text-sm font-bold text-gray-900">Rs.{{bus.totalcost}}</code>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
+            <p>What are you thinking of? To confirm the trip</p>
+            <p>
+              <a href="/main/pay/{{bus.id}}" class="text-green-500 hover:text-green-400"> Pay Now &rarr; </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

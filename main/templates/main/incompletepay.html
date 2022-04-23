@@ -1,0 +1,118 @@
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+	rel="stylesheet">
+    <header class="text-gray-100 bg-gray-900 body-font shadow w-full">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+                <a href="/mytrip-bus/"
+                    class="mr-5 hover:text-yellow-500 cursor-pointer border-b border-transparent hover:border-yellow-500">Bus Trip</a>
+
+                    <a href="/mytrip-air/"
+                    class="mr-5 hover:text-yellow-500 cursor-pointer border-b border-transparent hover:border-yellow-500">Air Trip</a>
+                    <a href="/incomplete-bus/"
+                    class="mr-5 hover:text-yellow-500 cursor-pointer border-b border-transparent hover:border-yellow-500">Incomplete Booking (Bus)</a>
+
+                    <a href="/incomplete-air/"
+                    class="hover:text-yellow-500 cursor-pointer border-b border-transparent hover:border-yellow-500">Incomplete Booking (Air)</a>
+            </nav>
+            <a
+                class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center lg:items-center lg:justify-center mb-4 md:mb-0">
+                <img src="https://pazly.dev/logo.png" style="height: 40px; margin-top: 10px; margin-bottom: 10px;"
+                    alt="logo">
+
+                <span class="ml-3 text-3xl text-yellow-500 font-bold">Sky Travel</span>
+            </a>
+            <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+                <a href="/log-out/" class="bg-yellow-500 hover:bg-yellow-400 text-black ml-4 py-2 px-3 rounded-lg">
+                    Log-out
+                </a>
+            </div>
+        </div>
+    </header>
+<div class="flex items-center justify-center min-h-screen bg-gray-900">
+	<div class="col-span-12">
+		<div class="overflow-auto lg:overflow-visible ">
+			<table class="table text-gray-400 border-separate space-y-6 text-sm">
+                <thead class="bg-gray-800 text-gray-500">
+					<tr>
+						<th class="p-3 text-yellow-500 text-center" colspan=9>Incomplete {{tripby}} Trip Booking</th>
+					
+					</tr>
+				</thead>
+				<thead class="bg-gray-800 text-gray-500">
+					<tr>
+						<th class="p-3 text-center text-yellow-500">Route</th>
+						<th class="p-3 text-center text-yellow-500">Departure Date</th>
+						<th class="p-3 text-center text-yellow-500">Departure Time</th>
+                        <th class="p-3 text-center text-yellow-500">Arial Time</th>
+                        <th class="p-3 text-center text-yellow-500">Adult</th>
+                        <th class="p-3 text-center text-yellow-500">Child</th>
+                        {% comment %} <th class="p-3 text-center text-yellow-500">Baby</th> {% endcomment %}
+						<th class="p-3 text-center"></th>
+                        <th class="p-3 text-center"></th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for t in trip %}
+					<tr class="bg-gray-800">
+                   
+                        <td class="p-3 font-bold text-blue-300">
+							{{t.bus}}
+						</td>
+						<td class="p-3 font-bold text-pink-400">
+							{{t.departureDate}}
+						</td>
+						<td class="p-3 font-bold text-pink-400">
+							{{t.bus.departure}}
+						</td>
+                       
+						<td class="p-3 font-bold text-pink-400">
+							${{t.bus.arival}}
+						</td>
+                        {% comment %} <td class="p-3 font-bold text-green-400">
+							${{t.baby}}
+						</td> {% endcomment %}
+                        <td class="p-3 font-bold text-green-400">
+							${{t.child}}
+						</td>
+                        <td class="p-3 font-bold text-green-400">
+							${{t.adult}}
+						</td>
+						<td class="p-3">
+							<a href="/pay/{{tripby}}/{{t.id}}/"><span class="bg-yellow-500 text-black rounded-md px-3 py-2">Pay Now</span></a>
+						</td>
+                        <td class="p-3">
+							<a href="/invoice/{{tripby}}/{{t.id}}/"><span class="bg-green-500 text-black rounded-md px-3 py-2">Invoice</span></a>
+						</td>
+					</tr>
+				{% endfor %}
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<style>
+	.table {
+		border-spacing: 0 15px;
+	}
+
+	i {
+		font-size: 1rem !important;
+	}
+
+	.table tr {
+		border-radius: 20px;
+	}
+
+	tr td:nth-child(n+5),
+	tr th:nth-child(n+5) {
+		border-radius: 0 .625rem .625rem 0;
+	}
+
+	tr td:nth-child(1),
+	tr th:nth-child(1) {
+		border-radius: .625rem 0 0 .625rem;
+	}
+</style>
